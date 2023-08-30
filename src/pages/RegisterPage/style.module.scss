@@ -1,0 +1,12 @@
+.registerContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 370px;
+    height: 1115px;
+    gap: 50px;
+
+    img {
+        padding-top: 0.5625rem;
+    }
+}

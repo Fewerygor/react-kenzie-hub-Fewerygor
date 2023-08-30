@@ -1,0 +1,56 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    // max-width: 800px;
+    height: 720px;
+
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+
+        button {
+            display: inline-flex;
+            height: 32px;
+            padding: 0px 16.243px;
+            justify-content: center;
+            align-items: center;
+            gap: 10.152px;
+            border-radius: 4px;
+            background: var(--gray-3);
+            color: var(--gray-0);
+        }
+    }
+
+    .line {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        width: 100vw;
+        overflow-x: hidden;
+        .nameContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 118px;
+            max-width: 800px;
+            span {
+                color: var(--gray-0);
+            }
+        }
+
+    }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 20px;
+    }
+}
