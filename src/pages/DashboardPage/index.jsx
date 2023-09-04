@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss";
+import { UserContext } from "../../providers/userContext";
 
-export const DashboardPage = ({ user, userLogout }) => {
+export const DashboardPage = () => {
+    const {  user, userLogout} = useContext(UserContext);
+
     return (
         <>
             <div className={styles.dashboard}>
                 <header className={`${styles.header} container`}>
                     <img src={logo} alt="Logo Kenzie Hub" />
-                    <button onClick={userLogout}>Sair</button>
+                    <button onClick={() => userLogout()}>Sair</button>
                 </header>
 
                 <div className={styles.line}>

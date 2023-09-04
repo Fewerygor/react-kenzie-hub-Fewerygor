@@ -1,35 +1,19 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema";
 import { InputPassword } from "../InputPassword";
-import { api } from "../../../services/api";
-import { useState } from "react";
+import { useContext } from "react";
 import styles from "./style.module.scss"
+import { UserContext } from "../../../providers/userContext";
 
-export const LoginForm = ({ setUser }) => {
+export const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(loginFormSchema),
     });
 
-    const navigate = useNavigate();
-
-    const [loading, setLoading] = useState(false);
-
-    const userLogin = async (formData) => {
-        try {
-            setLoading(true);
-            const { data } = await api.post("/sessions", formData);
-            setUser(data.user);
-            localStorage.setItem("@TOKEN", data.token);
-            navigate("/dashboard");
-        } catch (error) {
-            console.log(error)
-        } finally {
-            setLoading(false);
-        };
-    };
+    const { userLogin, loading } = useContext(UserContext);
 
     const submit = (formData) => {
         userLogin(formData);
